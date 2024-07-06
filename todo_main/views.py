@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from todo.models import Task
-def home(request):
+def index(request):
     tasks = Task.objects.filter(is_completed=False)
     completed_tasks = Task.objects.filter(is_completed=True)
     
@@ -8,4 +8,4 @@ def home(request):
         'tasks': tasks,
         'completed_tasks':completed_tasks
     }
-    return render(request,"home.html",context)
+    return render(request,"index.html",context)
